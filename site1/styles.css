@@ -1,0 +1,245 @@
+/* CSS RESET MARGINS N SHIT */
+
+
+/* Remove default margin */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+q {
+    quotes: "“" "”";
+}
+
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+
+/* Set core root defaults */
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+
+/* Set core body defaults */
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+
+/* A elements that don't have a class get default styles */
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+
+/* Make images easier to work with */
+
+
+/* Inherit fonts for inputs and buttons */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* box-sizing roots */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* CSS VARIABLES */
+:root {
+    /* font size */
+    --fs-xsmall: 0.6875rem;
+    --fs-small: 0.8125rem;
+    --fs-norm: 1.25rem;
+    --fs-lrg: 1.50rem;
+    /* font weight */
+    --fw-400: 500;
+    --fw-500: 800;
+    /* font type */
+    --ff-main: "Source Sans Pro", sans-serif;
+    /* COLORS N TINGZ */
+    --ft-color: #DEB992;
+    --ft-color2: #f7f4e9;
+    --bg-color1: #051622;
+    --bg-color2: #1BA098;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+
+}
+
+.nav {
+    
+    font-size: var(--fs-lrg);
+    font-weight: var(--fw-500);
+    
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.menu-toggle{
+    display: none;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 99px;
+    background-color: var(--bg-color1);
+    cursor: pointer;
+}
+
+.hamburger {
+    position: relative;
+    top: calc(50% - 2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+}
+
+.hamburger > span,
+.hamburger > span::before,
+.hamburger > span::after {
+    display: block;
+    position: absolute;
+    height: 4px;
+    border-radius: 99px;
+    background-color: #fff;
+    transition-duration: .25s;
+}
+
+.hamburger > span::before {
+    content: '';
+    top: -8px;
+}
+
+.hamburger > span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu-toggle.is-active .hamburger > span {
+    transform: rotate(45deg);
+}
+
+.menu-toggle.is-active .hamburger > span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+
+.menu-toggle.is-active .hamburger > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+.sidebar {
+    flex: 1 1 0;
+    max-width: 300px;
+    padding: 2rem 1rem;
+    background-color: #2e3047;
+}
+
+.sidebar-heading {
+    color: #707793;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+}
+
+.sidebar .sidemenu {
+    margin: 0 -1rem;
+}
+
+.sidebar .sidemenu .sideitem .sidelink {
+    display: block;
+    padding: 1em;
+    color: #FFF;
+    text-decoration: none;
+    transition: 0.2s linear;
+}
+
+.sidebar .sidemenu .sideitem .sidelink:hover,
+.sidebar .sidemenu .sideitem .sidelink.is-active {
+    color: #3bba9c;
+    border-right: 5px solid #3bba9c;
+}
+
+.sidebar .sidemenu .sideitem .sidelink:hover {
+    border-right: 5px solid #3bba9c;
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        height: 100vh;
+        width: 100%;
+        max-width: 300px;
+        transition: 0.2s linear;
+    }
+
+    .sidebar.is-active {
+        left: 0;
+    }
+}

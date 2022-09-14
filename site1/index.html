@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <!-- hamburger time -->
+    <section class="nav">
+        <div class="app">
+            <!-- toggle button for on/off -->
+            <div class="menu-toggle">
+                <!-- actual hamburger menu time -->
+                <div class="hamburger">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- side bar to go with hamburger -->
+        <div class="sidebar">
+            <h3 class="sidebar-heading">MENU</h3>
+
+            <ul class="sidemenu">
+                <li class="sideitem"><a href="#" class="sidelink is-active">Home</a></li>
+                <li class="sideitem"><a href="#" class="sidelink">About</a></li>
+                <li class="sideitem"><a href="#" class="sidelink">Projects</a></li>
+                <li class="sideitem"><a href="#" class="sidelink">Contact</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- main sections -->
+
+    <section class="article">ARTICLE SECTION</section>
+
+    <!-- projects / slider -->
+    <section class="carousel">CAROUSEL</section>
+
+    <!-- contact section -->
+    <section class="footer">Footer</section>
+
+
+    <script>
+        const menu_toggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        menu_toggle.addEventListener('click', () => {
+            menu_toggle.classList.toggle('is-active');
+            sidebar.classList.toggle('is-active');
+        });
+    </script>
+</body>
+</html>
